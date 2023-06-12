@@ -1,55 +1,66 @@
-# Astro Starter Kit: Basics
+<div align="center">
+<img src="https://www.frontendmentor.io/static/images/logo-mobile.svg" alt="frontendmentor" width="80">
+<h2 align="center">Intro Component With Sign Up Form</h2>
+</div>
 
-```
-npm create astro@latest -- --template basics
-```
+This is a solution to the [Intro component with sign up form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Overview
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### The challenge
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+Users should be able to:
 
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Receive an error message when the `form` is submitted if:
+  - Any `input` field is empty. The message for this error should say *"[Field Name] cannot be empty"*
+  - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Looks like this is not an email"*
 
-## 🚀 Project Structure
+### Screenshot
 
-Inside of your Astro project, you'll see the following folders and files:
+![](./design/desktop-preview.jpg)
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### 🔗 Links
+<div align="left">
+  <a href="https://davidochoadev.github.io/results-summary-component/" target="_blank">
+    <img src="https://img.shields.io/badge/Solution%20Mentor-%20SOLUTION%20URL-f8f9f8?style=for-the-badge&logo=Frontend-Mentor&logoColor=white&labelColor=3f54a3" alt="Frontend-Mentor Solution">
+  </a>
+  <br>
+  <a href="https://davidochoadev.github.io/results-summary-component/" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Site%20URL-fff?style=for-the-badge&logo=github&logoColor=white&labelColor=100000" alt="Github">
+  </a>
+</div>
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+<div align="center">
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+<h2 align="center">🛠 Built With</h2>
+<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS">
+<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+<img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React">
+<img src="https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE" alt="Astro">
+</div>
 
-Any static assets, like images, can be placed in the `public/` directory.
+<div align="center">
+<h2 align="center">💻 Technologies Used</h2>
+<img src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VSCode">
+<img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" alt="git">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github">
+<img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white" alt="github pages">
+</div>
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<div align="center">
+<h2 align="center">👋 Connect with Me</h2>
+<a href="https://www.linkedin.com/in/davidochoadev/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn%20Profile-%20davidochoadev-ffffff?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5" alt="LinkedIn">
+  </img>
+</a>
+<br>
+<a href="https://davidochoa.fly.dev" target="_blank">
+  <img src="https://img.shields.io/badge/website-%20davidochoa.fly.dev%20-1e293b?style=for-the-badge&logo=About.me&logoColor=white&labelColor=33ddb3&colo=33ddb3" alt="My Website">
+</a>
+<br>
+<a href="https://www.frontendmentor.io/profile/davidochoadev" target="_blank">
+<img src="https://img.shields.io/badge/Frontend%20Mentor-%20Profile-f8f9f8?style=for-the-badge&logo=Frontend-Mentor&logoColor=white&labelColor=3f54a3" alt="Frontend-Mentor Profile">
+</a>
+</div>
