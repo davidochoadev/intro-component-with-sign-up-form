@@ -1,8 +1,25 @@
+import React, { useState } from "react"
 const Comp = () => {
-   const inputClass : string = 'py-4 px-4 rounded-md border border-gray-300 font-medium placeholder:text-gray-500 '
+   const inputClass : string = 'py-4 px-4 rounded-md border border-gray-300 font-medium placeholder:text-gray-500 ';
+   const errorClass : string = 'text-red-500 text-sm px-4'
+   const [firstName, setFirstName] = useState("");
+   const [nameError, setNameError] = useState(false);
+
+   const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      if(!firstName) {
+         console.log("NESSUN NOME AIUTOOOO");
+         setNameError(true);
+      } else {
+         console.log("OK OK C'è UN NOME");
+         setNameError(false);
+      }
+   }
+
    return (
-      <form className="flex flex-col gap-4 p-5 bg-white rounded-lg my-4 ">
-         <input type="text" placeholder="First Name" name="name" className={`${inputClass}`}/>
+      <form className="flex flex-col gap-4 p-5 bg-white rounded-lg my-4 " onSubmit={handleSubmit}>
+         <input type="text" placeholder="First Name" name="name" className={`${inputClass}`} value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
+         {nameError ? <p className={`${errorClass}`}>Please enter your first name</p> : null }
          <input type="text" placeholder="Last Name" name="last-name" className={`${inputClass}`}/>
          <input type="text" placeholder="Email Address" name="email" className={`${inputClass}`}/>
          <input type="password" placeholder="Password" name="password" className={`${inputClass}`}/>
