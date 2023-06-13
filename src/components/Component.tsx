@@ -1,50 +1,105 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-enum namesErrorState {
+enum errorStates {
 	None = 'none',
 	TooShort = 'tooShort',
 	Wrong = 'wrong'
 }
 const Comp = () => {
 	const inputClass: string =
-		'py-4 px-4 rounded-md border border-gray-300 font-medium placeholder:text-gray-500 '
-	const errorClass: string = 'text-red-500 text-sm px-4'
-	const [firstName, setFirstName] = useState<string>('')
-	const [lastName, setLastName] = useState<string>('')
-	const [nameError, setNameError] = useState<namesErrorState>(namesErrorState.None)
-	const [lastNameError, setLastNameError] = useState<namesErrorState>(namesErrorState.None)
+		'py-4 px-4 rounded-md border border-gray-300 font-medium placeholder:text-gray-500 ';
+	const errorClass: string = 'text-red-500 text-sm px-4';
+	const [firstName, setFirstName] = useState<string>('');
+	const [lastName, setLastName] = useState<string>('');
+	const [email, setEmail] = useState<string>('');
+	const [psw, setPsw] = useState<string>('');
+	const [nameError, setNameError] = useState<errorStates>(errorStates.None);
+	const [lastNameError, setLastNameError] = useState<errorStates>(errorStates.None);
+	const [emailError, setEmailError] = useState<errorStates>(errorStates.None);
+	const [pswError, setPswError] = useState<errorStates>(errorStates.None);
+
+	const validateString = (value: string) => {
+		if (value.length === 0) {
+			return errorStates.TooShort;
+		} else if (!/^[a-zA-Z ]*$/.test(value)) {
+			return errorStates.Wrong;
+		} else {
+			return errorStates.None;
+		}
+	};
+	const validateMail = (value: string) => {
+		if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value)) {
+			return errorStates.Wrong;
+		} else {
+			return errorStates.None;
+		}
+	};
+
+	const validatePsw = (psw: string) => {
+		if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(psw)) {
+			return errorStates.Wrong;
+		} else {
+			return errorStates.None;
+		}
+	};
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		if (!firstName && firstName.length === 0) {
-			setNameError(namesErrorState.TooShort)
-		} else if (!/^[a-zA-Z ]*$/.test(firstName)) {
-			setNameError(namesErrorState.Wrong)
-		} else {
-			setNameError(namesErrorState.None)
-		}
-	}
+		event.preventDefault();
+		const nameErrorState = validateString(firstName);
+		setNameError(nameErrorState);
+		const lastNameErrorState = validateString(lastName);
+		setLastNameError(lastNameErrorState);
+		const emailErrorState = validateMail(email);
+		setEmailError(emailErrorState);
+		const pswErrorState = validatePsw(psw);
+		setPswError(pswErrorState);
+	};
 
 	const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setFirstName(event.target.value)
+		setFirstName(event.target.value);
 		if (event.target.value.length === 0) {
-			setNameError(namesErrorState.TooShort)
+			setNameError(errorStates.TooShort);
 		} else if (!/^[a-zA-Z ]*$/.test(event.target.value)) {
-			setNameError(namesErrorState.Wrong)
+			setNameError(errorStates.Wrong);
 		} else {
-			setNameError(namesErrorState.None)
+			setNameError(errorStates.None);
 		}
-	}
+	};
 	const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setLastName(event.target.value)
+		setLastName(event.target.value);
 		if (event.target.value.length === 0) {
-			setLastNameError(namesErrorState.TooShort)
+			setLastNameError(errorStates.TooShort);
 		} else if (!/^[a-zA-Z ]*$/.test(event.target.value)) {
-			setLastNameError(namesErrorState.Wrong)
+			setLastNameError(errorStates.Wrong);
 		} else {
-			setLastNameError(namesErrorState.None)
+			setLastNameError(errorStates.None);
 		}
-	}
+	};
+	const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setEmail(event.target.value);
+		if (event.target.value.length === 0) {
+			setEmailError(errorStates.TooShort);
+		} else if (
+			!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+				event.target.value
+			)
+		) {
+			setEmailError(errorStates.Wrong);
+		} else {
+			setEmailError(errorStates.None);
+		}
+	};
+
+	const handlePsw = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setPsw(event.target.value);
+		if (event.target.value.length === 0) {
+			setPswError(errorStates.TooShort);
+		} else if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(psw)) {
+			setPswError(errorStates.Wrong);
+		} else {
+			setPswError(errorStates.None);
+		}
+	};
 
 	return (
 		<form className="my-4 flex flex-col gap-4 rounded-lg bg-white p-5 " onSubmit={handleSubmit}>
@@ -56,9 +111,9 @@ const Comp = () => {
 				value={firstName}
 				onChange={handleFirstName}
 			/>
-			{nameError === namesErrorState.TooShort ? (
+			{nameError === errorStates.TooShort ? (
 				<p className={`${errorClass}`}>Please enter your first name 🙏🏻</p>
-			) : nameError === namesErrorState.Wrong ? (
+			) : nameError === errorStates.Wrong ? (
 				<p className={`${errorClass}`}>Please enter a valid first name 😵</p>
 			) : null}
 			<input
@@ -69,13 +124,33 @@ const Comp = () => {
 				value={lastName}
 				onChange={handleLastName}
 			/>
-			{lastNameError === namesErrorState.TooShort ? (
+			{lastNameError === errorStates.TooShort ? (
 				<p className={`${errorClass}`}>Please enter your last name 🙇🏻‍♂️</p>
-			) : lastNameError === namesErrorState.Wrong ? (
+			) : lastNameError === errorStates.Wrong ? (
 				<p className={`${errorClass}`}>Please enter a valid last name 🤷🏻‍♂️</p>
 			) : null}
-			<input type="text" placeholder="Email Address" name="email" className={`${inputClass}`} />
-			<input type="password" placeholder="Password" name="password" className={`${inputClass}`} />
+			<input
+				type="text"
+				placeholder="Email Address"
+				name="email"
+				className={`${inputClass}`}
+				value={email}
+				onChange={handleEmail}
+			/>
+			{emailError === errorStates.TooShort ? (
+				<p className={`${errorClass}`}>Please enter your email address 📧</p>
+			) : emailError === errorStates.Wrong ? (
+				<p className={`${errorClass}`}>Please enter a valid email address 🥹</p>
+			) : null}
+			<input
+				type="password"
+				placeholder="Password"
+				name="password"
+				className={`${inputClass}`}
+				value={psw}
+				onChange={handlePsw}
+			/>
+
 			<button
 				type="submit"
 				className="hover:#06874e rounded-lg bg-[#37cc8a] py-4 font-bold text-white duration-300"
@@ -92,7 +167,7 @@ const Comp = () => {
 				</a>
 			</p>
 		</form>
-	)
-}
+	);
+};
 
-export default Comp
+export default Comp;
