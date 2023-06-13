@@ -9,10 +9,12 @@ const Comp = () => {
 	const inputClass: string =
 		'py-4 px-4 rounded-md border border-gray-300 font-medium placeholder:text-gray-500 ';
 	const errorClass: string = 'text-red-500 text-sm px-4';
+
 	const [firstName, setFirstName] = useState<string>('');
 	const [lastName, setLastName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [psw, setPsw] = useState<string>('');
+
 	const [nameError, setNameError] = useState<errorStates>(errorStates.None);
 	const [lastNameError, setLastNameError] = useState<errorStates>(errorStates.None);
 	const [emailError, setEmailError] = useState<errorStates>(errorStates.None);
@@ -56,6 +58,7 @@ const Comp = () => {
 	};
 
 	const handleFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
 		setFirstName(event.target.value);
 		if (event.target.value.length === 0) {
 			setNameError(errorStates.TooShort);
@@ -66,6 +69,7 @@ const Comp = () => {
 		}
 	};
 	const handleLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
 		setLastName(event.target.value);
 		if (event.target.value.length === 0) {
 			setLastNameError(errorStates.TooShort);
@@ -76,6 +80,7 @@ const Comp = () => {
 		}
 	};
 	const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
 		setEmail(event.target.value);
 		if (event.target.value.length === 0) {
 			setEmailError(errorStates.TooShort);
@@ -91,10 +96,12 @@ const Comp = () => {
 	};
 
 	const handlePsw = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
+      console.log(event.target.value);
 		setPsw(event.target.value);
 		if (event.target.value.length === 0) {
 			setPswError(errorStates.TooShort);
-		} else if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(psw)) {
+		} else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(event.target.value)) {
 			setPswError(errorStates.Wrong);
 		} else {
 			setPswError(errorStates.None);
@@ -150,7 +157,11 @@ const Comp = () => {
 				value={psw}
 				onChange={handlePsw}
 			/>
-
+			{pswError === errorStates.TooShort ? (
+				<p className={`${errorClass}`}>Please enter your password 🙏</p>
+			) : pswError === errorStates.Wrong ? (
+				<p className={`${errorClass}`}>Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character. 😵</p>
+			) : null}
 			<button
 				type="submit"
 				className="hover:#06874e rounded-lg bg-[#37cc8a] py-4 font-bold text-white duration-300"
