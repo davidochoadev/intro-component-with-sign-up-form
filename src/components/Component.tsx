@@ -109,7 +109,7 @@ const Comp = () => {
 	};
 
 	return (
-		<form className="my-4 flex flex-col gap-4 rounded-lg bg-white p-5 " onSubmit={handleSubmit}>
+		<form className="my-4 flex flex-col gap-4 rounded-lg bg-white p-5 w-full shadow-md drop-shadow-xl" onSubmit={handleSubmit}>
 			<input
 				type="text"
 				placeholder="First Name"

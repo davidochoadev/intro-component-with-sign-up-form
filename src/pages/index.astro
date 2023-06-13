@@ -1,22 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Comp from '../components/Component'
+import Layout from '../layouts/Layout.astro';
+import Comp from '../components/Component';
 ---
 
 <Layout title="Intro Component With Sign Up Form">
-	<main class="p-4">
-		<div class="py-10">
-			<h1 class="text-2xl font-bold text-center px-12 text-white py-4">Learn to code by watching others</h1>
-			<p class="text-sm px-6 text-center text-white py-2">
+	<main class="h-screen p-4 md:flex lg:mx-auto lg:w-4/5 lg:gap-8 ">
+		<div class="py-10 md:flex md:w-1/2 md:flex-col md:items-center md:justify-center">
+			<h1
+				class="px-12 py-4 text-center text-2xl font-bold text-white lg:text-left md:text-3xl lg:text-5xl lg:px-0"
+			>
+				Learn to code by watching others
+			</h1>
+			<p class="px-6 py-2 text-center text-sm text-white md:text-lg lg:text-xl lg:text-left lg:px-0">
 				See how experienced developers solve problems in real-time. Watching scripted tutorials
 				is great. but understanding how developers think is invaluable.
 			</p>
 		</div>
-		<div>
-			<button class="h-full w-full rounded-xl bg-[#5d55a3] px-20 py-4 text-sm font-light text-white drop-shadow-md hover:bg-[#423c78]">
-				<span class="font-bold">Try it free 7 days</span> then $20/mo. thereafter
-			</button>
-			<Comp client:idle/>
+		<div class="md:flex md:w-1/2 md:flex-col md:items-center md:justify-center">
+			<a
+				class="h-full w-full rounded-xl bg-[#5d55a3] px-20 py-4 text-sm font-light text-white drop-shadow-md shadow-md hover:bg-[#423c78] md:h-min flex justify-center items-center"
+			>
+				<span><strong class="font-bold">Try it free 7 days</strong> then $20/mo. thereafter</span> 
+			</a>
+			<Comp client:idle />
 		</div>
 	</main>
 </Layout>
