@@ -1,11 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Comp from '../components/Component';
+import Layout from '../layouts/Layout.astro'
+import Comp from '../components/Component'
 ---
 
 <Layout title="Intro Component With Sign Up Form">
-	<main>
-		<Comp />
+	<main class="p-4">
+		<div>
+			<h1>Learn to code by watching others</h1>
+			<p>
+				See how experienced developers solve problems in real-time. Watching scripted tutorials
+				is great. but understanding how developers think is invaluable.
+			</p>
+		</div>
+		<div>
+			<button class="h-full w-full rounded-xl bg-[#5d55a3] px-20 py-4 text-sm font-light text-white drop-shadow-md hover:bg-[#423c78]">
+				<span class="font-bold">Try it free 7 days</span> then $20/mo. thereafter
+			</button>
+			<Comp />
+		</div>
 	</main>
 </Layout>
-
