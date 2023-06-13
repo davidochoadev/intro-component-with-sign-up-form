@@ -23,11 +23,11 @@ Users should be able to:
 
 ### 🔗 Links
 <div align="left">
-  <a href="https://davidochoadev.github.io/results-summary-component/" target="_blank">
+  <a href="https://davidochoadev.github.io/intro-component-with-sign-up-form/" target="_blank">
     <img src="https://img.shields.io/badge/Solution%20Mentor-%20SOLUTION%20URL-f8f9f8?style=for-the-badge&logo=Frontend-Mentor&logoColor=white&labelColor=3f54a3" alt="Frontend-Mentor Solution">
   </a>
   <br>
-  <a href="https://davidochoadev.github.io/results-summary-component/" target="_blank">
+  <a href="https://davidochoadev.github.io/intro-component-with-sign-up-form/ target="_blank">
     <img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Site%20URL-fff?style=for-the-badge&logo=github&logoColor=white&labelColor=100000" alt="Github">
   </a>
 </div>
@@ -36,7 +36,7 @@ Users should be able to:
 
 <h2 align="center">🛠 Built With</h2>
 <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS">
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+<img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React">
 <img src="https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE" alt="Astro">
 </div>
